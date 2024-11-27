@@ -1,8 +1,9 @@
-package com.google.firebase.example.fireeats
+package br.edu.up.rgm33026050.example.fireeats
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
+import com.google.firebase.example.fireeats.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

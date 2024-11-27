@@ -1,10 +1,10 @@
-package com.google.firebase.example.fireeats.adapter
+package br.edu.up.rgm33026050.example.fireeats.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.example.fireeats.databinding.ItemRatingBinding
-import com.google.firebase.example.fireeats.model.Rating
+import br.edu.up.rgm33026050.example.fireeats.model.Rating
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
 import java.text.SimpleDateFormat

@@ -1,4 +1,4 @@
-package com.google.firebase.example.fireeats
+package br.edu.up.rgm33026050.example.fireeats
 
 import android.app.Activity
 import android.os.Bundle
@@ -23,9 +23,9 @@ import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.example.fireeats.databinding.FragmentMainBinding
-import com.google.firebase.example.fireeats.adapter.RestaurantAdapter
-import com.google.firebase.example.fireeats.model.Restaurant
-import com.google.firebase.example.fireeats.util.RestaurantUtil
+import br.edu.up.rgm33026050.example.fireeats.adapter.RestaurantAdapter
+import br.edu.up.rgm33026050.example.fireeats.util.RestaurantUtil
+import com.google.firebase.example.fireeats.R
 import com.google.firebase.example.fireeats.viewmodel.MainActivityViewModel
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -166,13 +166,13 @@ class MainFragment : Fragment(),
 
     private fun onFilterClicked() {
         // Show the dialog containing filter options
-        filterDialog.show(childFragmentManager, FilterDialogFragment.TAG)
+        filterDialog.show(childFragmentManager, FilterDialogFragment.Companion.TAG)
     }
 
     private fun onClearFilterClicked() {
         filterDialog.resetFilters()
 
-        onFilter(Filters.default)
+        onFilter(Filters.Companion.default)
     }
 
     override fun onRestaurantSelected(restaurant: DocumentSnapshot) {

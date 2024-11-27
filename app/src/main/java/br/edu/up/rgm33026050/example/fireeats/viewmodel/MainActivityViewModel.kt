@@ -1,10 +1,10 @@
 package com.google.firebase.example.fireeats.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.google.firebase.example.fireeats.Filters
+import br.edu.up.rgm33026050.example.fireeats.Filters
 
 /**
- * ViewModel for [com.google.firebase.example.fireeats.MainActivity].
+ * ViewModel for [br.edu.up.rgm33026050.example.fireeats.MainActivity].
  */
 
 class MainActivityViewModel : ViewModel() {

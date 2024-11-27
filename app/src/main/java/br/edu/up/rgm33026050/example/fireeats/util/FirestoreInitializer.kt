@@ -1,4 +1,4 @@
-package com.google.firebase.example.fireeats.util
+package br.edu.up.rgm33026050.example.fireeats.util
 
 import android.content.Context
 import androidx.startup.Initializer

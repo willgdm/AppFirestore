@@ -1,4 +1,4 @@
-package com.google.firebase.example.fireeats.model
+package br.edu.up.rgm33026050.example.fireeats.model
 
 import android.text.TextUtils
 import com.google.firebase.auth.FirebaseUser

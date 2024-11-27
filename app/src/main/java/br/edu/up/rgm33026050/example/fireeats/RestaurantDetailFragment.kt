@@ -1,4 +1,4 @@
-package com.google.firebase.example.fireeats
+package br.edu.up.rgm33026050.example.fireeats
 
 import android.content.Context
 import android.os.Bundle
@@ -14,10 +14,11 @@ import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.example.fireeats.databinding.FragmentRestaurantDetailBinding
-import com.google.firebase.example.fireeats.adapter.RatingAdapter
-import com.google.firebase.example.fireeats.model.Rating
-import com.google.firebase.example.fireeats.model.Restaurant
-import com.google.firebase.example.fireeats.util.RestaurantUtil
+import br.edu.up.rgm33026050.example.fireeats.adapter.RatingAdapter
+import br.edu.up.rgm33026050.example.fireeats.model.Rating
+import br.edu.up.rgm33026050.example.fireeats.model.Restaurant
+import br.edu.up.rgm33026050.example.fireeats.util.RestaurantUtil
+import com.google.firebase.example.fireeats.R
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
@@ -138,7 +139,7 @@ class RestaurantDetailFragment : Fragment(),
     }
 
     private fun onAddRatingClicked() {
-        ratingDialog?.show(childFragmentManager, RatingDialogFragment.TAG)
+        ratingDialog?.show(childFragmentManager, RatingDialogFragment.Companion.TAG)
     }
 
     override fun onRating(rating: Rating) {
