@@ -21,9 +21,10 @@ import java.util.ArrayList
 abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder>(private var query: Query?) :
     RecyclerView.Adapter<VH>(),
     EventListener<QuerySnapshot> { // Add this implements
-    private var registration: ListenerRegistration? = null
 
+    private var registration: ListenerRegistration? = null
     private val snapshots = ArrayList<DocumentSnapshot>()
+
     override fun onEvent(documentSnapshots: QuerySnapshot?, e: FirebaseFirestoreException?) {
 
         // Handle errors
@@ -38,13 +39,13 @@ abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder>(private var query:
                 // snapshot of the changed document
                 when (change.type) {
                     DocumentChange.Type.ADDED -> {
-                        // TODO: handle document added
+                        onDocumentAdded(change) // Add this line
                     }
                     DocumentChange.Type.MODIFIED -> {
-                        // TODO: handle document changed
+                        onDocumentModified(change) // Add this line
                     }
                     DocumentChange.Type.REMOVED -> {
-                        // TODO: handle document removed
+                        onDocumentRemoved(change) // Add this line
                     }
                 }
             }
@@ -53,7 +54,9 @@ abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder>(private var query:
         onDataChanged()
     }
     fun startListening() {
-        // TODO(developer): Implement
+        if (query != null && registration == null) {
+            registration = query!!.addSnapshotListener(this)
+        }
     }
 
     fun stopListening() {
@@ -91,8 +94,31 @@ abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder>(private var query:
         return snapshots[index]
     }
 
-    companion object {
+    // New methods for handling document changes
+    private fun onDocumentAdded(change: DocumentChange) {
+        snapshots.add(change.newIndex, change.document)
+        notifyItemInserted(change.newIndex)
+    }
 
+    private fun onDocumentModified(change: DocumentChange) {
+        if (change.oldIndex == change.newIndex) {
+            // Item changed but remained in the same position
+            snapshots[change.oldIndex] = change.document
+            notifyItemChanged(change.oldIndex)
+        } else {
+            // Item changed and changed position
+            snapshots.removeAt(change.oldIndex)
+            snapshots.add(change.newIndex, change.document)
+            notifyItemMoved(change.oldIndex, change.newIndex)
+        }
+    }
+
+    private fun onDocumentRemoved(change: DocumentChange) {
+        snapshots.removeAt(change.oldIndex)
+        notifyItemRemoved(change.oldIndex)
+    }
+
+    companion object {
         private const val TAG = "FirestoreAdapter"
     }
 }
