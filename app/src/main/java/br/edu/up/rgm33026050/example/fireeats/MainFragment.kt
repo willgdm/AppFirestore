@@ -24,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.example.fireeats.databinding.FragmentMainBinding
 import br.edu.up.rgm33026050.example.fireeats.adapter.RestaurantAdapter
+import br.edu.up.rgm33026050.example.fireeats.model.Restaurant
 import br.edu.up.rgm33026050.example.fireeats.util.RestaurantUtil
 import com.google.firebase.example.fireeats.R
 import com.google.firebase.example.fireeats.viewmodel.MainActivityViewModel
@@ -183,8 +184,35 @@ class MainFragment : Fragment(),
         findNavController().navigate(action)
     }
 
-    override fun onFilter(filters: Filters) {
-        // TODO(developer): Construct new query
+        override fun onFilter(filters: Filters) {
+        // Construct query basic query
+        var query: Query = firestore.collection("restaurants")
+
+        // Category (equality filter)
+        if (filters.hasCategory()) {
+            query = query.whereEqualTo(Restaurant.FIELD_CATEGORY, filters.category)
+        }
+
+        // City (equality filter)
+        if (filters.hasCity()) {
+            query = query.whereEqualTo(Restaurant.FIELD_CITY, filters.city)
+        }
+
+        // Price (equality filter)
+        if (filters.hasPrice()) {
+            query = query.whereEqualTo(Restaurant.FIELD_PRICE, filters.price)
+        }
+
+        // Sort by (orderBy with direction)
+        if (filters.hasSortBy()) {
+            query = query.orderBy(filters.sortBy.toString(), filters.sortDirection)
+        }
+
+        // Limit items
+        query = query.limit(LIMIT.toLong())
+
+        // Update the query
+        adapter?.setQuery(query)
 
         // Set header
         binding.textCurrentSearch.text = HtmlCompat.fromHtml(
