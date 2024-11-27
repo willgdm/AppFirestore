@@ -164,8 +164,8 @@ class RestaurantDetailFragment : Fragment(),
     }
 
     private fun addRating(restaurantRef: DocumentReference, rating: Rating): Task<Void> {
-        // TODO(developer): Implement
-        return Tasks.forException(Exception("not yet implemented"))
+        // Create reference for new rating, for use inside the transaction
+        val ratingRef = restaurantRef.collection("ratings").document()
     }
 
     private fun hideKeyboard() {
