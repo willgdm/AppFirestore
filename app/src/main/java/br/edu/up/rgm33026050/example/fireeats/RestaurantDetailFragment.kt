@@ -178,7 +178,14 @@ class RestaurantDetailFragment : Fragment(),
             // Set new restaurant info
             restaurant.numRatings = newNumRatings
             restaurant.avgRating = newAvgRating
+            // Commit to Firestore
+            transaction.set(restaurantRef, restaurant)
+            transaction.set(ratingRef, rating)
+
+            null
+        }
     }
+
 
     private fun hideKeyboard() {
         val view = requireActivity().currentFocus
