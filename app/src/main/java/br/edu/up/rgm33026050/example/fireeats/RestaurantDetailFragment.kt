@@ -166,6 +166,9 @@ class RestaurantDetailFragment : Fragment(),
     private fun addRating(restaurantRef: DocumentReference, rating: Rating): Task<Void> {
         // Create reference for new rating, for use inside the transaction
         val ratingRef = restaurantRef.collection("ratings").document()
+        return firestore.runTransaction { transaction ->
+            val restaurant = transaction.get(restaurantRef).toObject<Restaurant>()
+                ?: throw Exception("Restaurant not found at ${restaurantRef.path}")
     }
 
     private fun hideKeyboard() {
