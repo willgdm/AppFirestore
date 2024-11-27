@@ -4,7 +4,7 @@ import android.content.Context
 import android.text.TextUtils
 import br.edu.up.rgm33026050.example.fireeats.model.Restaurant
 import br.edu.up.rgm33026050.example.fireeats.util.RestaurantUtil
-import com.google.firebase.example.fireeats.R
+import br.edu.up.rgm33026050.R
 import com.google.firebase.firestore.Query
 
 /**

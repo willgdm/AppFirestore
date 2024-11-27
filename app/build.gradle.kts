@@ -6,10 +6,10 @@ plugins {
 }
 
 android {
-    namespace = "com.google.firebase.example.fireeats"
+    namespace = "br.edu.up.rgm33026050"
     compileSdk = 35
     defaultConfig {
-        applicationId = "com.google.firebase.example.fireeats"
+        applicationId = "br.edu.up.rgm33026050"
         minSdk = 23
         targetSdk = 35
         versionCode = 1

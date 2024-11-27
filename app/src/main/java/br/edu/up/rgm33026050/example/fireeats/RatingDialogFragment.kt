@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import br.edu.up.rgm33026050.databinding.DialogRatingBinding
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.example.fireeats.databinding.DialogRatingBinding
 import br.edu.up.rgm33026050.example.fireeats.model.Rating
 import com.google.firebase.ktx.Firebase
 

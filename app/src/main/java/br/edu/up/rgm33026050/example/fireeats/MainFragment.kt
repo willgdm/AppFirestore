@@ -22,11 +22,11 @@ import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.example.fireeats.databinding.FragmentMainBinding
 import br.edu.up.rgm33026050.example.fireeats.adapter.RestaurantAdapter
 import br.edu.up.rgm33026050.example.fireeats.model.Restaurant
 import br.edu.up.rgm33026050.example.fireeats.util.RestaurantUtil
-import com.google.firebase.example.fireeats.R
+import br.edu.up.rgm33026050.R
+import br.edu.up.rgm33026050.databinding.FragmentMainBinding
 import com.google.firebase.example.fireeats.viewmodel.MainActivityViewModel
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore

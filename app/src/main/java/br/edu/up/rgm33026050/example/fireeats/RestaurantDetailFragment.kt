@@ -13,12 +13,12 @@ import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.example.fireeats.databinding.FragmentRestaurantDetailBinding
 import br.edu.up.rgm33026050.example.fireeats.adapter.RatingAdapter
 import br.edu.up.rgm33026050.example.fireeats.model.Rating
 import br.edu.up.rgm33026050.example.fireeats.model.Restaurant
 import br.edu.up.rgm33026050.example.fireeats.util.RestaurantUtil
-import com.google.firebase.example.fireeats.R
+import br.edu.up.rgm33026050.R
+import br.edu.up.rgm33026050.databinding.FragmentRestaurantDetailBinding
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
