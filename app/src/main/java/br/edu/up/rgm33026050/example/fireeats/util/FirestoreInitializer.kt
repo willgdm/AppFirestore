@@ -2,7 +2,7 @@ package com.google.firebase.example.fireeats.util
 
 import android.content.Context
 import androidx.startup.Initializer
-import com.google.firebase.example.fireeats.BuildConfig
+import com.google.firebase.firestore.BuildConfig
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
