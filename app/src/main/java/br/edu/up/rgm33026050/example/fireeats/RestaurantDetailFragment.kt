@@ -169,6 +169,12 @@ class RestaurantDetailFragment : Fragment(),
         return firestore.runTransaction { transaction ->
             val restaurant = transaction.get(restaurantRef).toObject<Restaurant>()
                 ?: throw Exception("Restaurant not found at ${restaurantRef.path}")
+            // Compute new number of ratings
+            val newNumRatings = restaurant.numRatings + 1
+
+            // Compute new average rating
+            val oldRatingTotal = restaurant.avgRating * restaurant.numRatings
+            val newAvgRating = (oldRatingTotal + rating.rating) / newNumRatings
     }
 
     private fun hideKeyboard() {
