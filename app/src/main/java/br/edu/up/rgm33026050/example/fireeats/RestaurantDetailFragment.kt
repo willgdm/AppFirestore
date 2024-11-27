@@ -175,6 +175,9 @@ class RestaurantDetailFragment : Fragment(),
             // Compute new average rating
             val oldRatingTotal = restaurant.avgRating * restaurant.numRatings
             val newAvgRating = (oldRatingTotal + rating.rating) / newNumRatings
+            // Set new restaurant info
+            restaurant.numRatings = newNumRatings
+            restaurant.avgRating = newAvgRating
     }
 
     private fun hideKeyboard() {
